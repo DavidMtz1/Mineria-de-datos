@@ -7,7 +7,7 @@
 
 #Hint:
 #1. Initialize sample size
-n<-100
+n<-10000
 
 #2. Initialize counter
   contador <-0
@@ -19,7 +19,7 @@ for(i in 1:n)
   Norm <- rnorm(i, mean = 0, sd = 1)
   
 #4. Compruebe si la variable iterada cae
-  if(Norm >-1 && Norm  <1){
+  if(Norm >=-1 && Norm  <=1){
     #5. Aumente el contador si la condición es verdadera
     contador<- contador+1
  
