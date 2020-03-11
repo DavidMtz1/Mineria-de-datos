@@ -27,3 +27,28 @@ profit.after.tax
 #
 profit.margin <- round(profit.after.tax/ingresos, 2) * 100
 profit.margin
+
+# Calculate the average after-tax benefit for the 12 months
+mean_pat <- mean(profit.after.tax)
+mean_pat
+
+#Find the months with higher than average earnings after taxes
+good.months <- max(profit, mean_pat)
+good.months
+# Bad months are the opposite of good months!
+bad.months <-  min(profit, mean_pat)
+bad.months
+
+# 8 The Best Month Is Where Profit After Tax Was Equal To The Maximum
+best.month <- profit.after.tax == max(profit.after.tax)
+best.month
+
+# 9 The Worst Month Is Where Profit After Tax Was Equal To The Minimum
+worst.month <- profit.after.tax == min(profit.after.tax)
+worst.month
+
+# 10 Convert All Calculations To Units Of One Thousand Dollars
+revenue.1000 <- round(revenue / 1000, 0)
+expenses.1000 <- round(expenses/ 1000, 0)
+profit.1000 <- round(profit/1000,0)
+profit.after.tax.1000 <- round(profit.after.tax/1000, 0)
