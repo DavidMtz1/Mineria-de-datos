@@ -453,3 +453,28 @@ myplot ((FieldGoalAttempts - FreeThrows) / Games)
 - Each free throw is worth 1 point
 - The data has been supplied in vector form. You will have to create
 - two matrices before proceeding with the analysis.
+
+### Fifth-Practice
+```
+#Filter countries by Low income
+stats[stats$Income.Group=="Low income",]
+
+#Filter countries by Lower middle income
+stats[stats$Income.Group=="Lower middle income",]
+
+#Filter countries by Upper middle income
+stats[stats$Income.Group=="Upper middle income",]
+
+#Filter by countrie Malta
+stats[stats$Country.Name=="Malta",]
+
+#Filter by countrie Qatar
+stats[stats$Country.Name== "Qatar",]
+
+#Filter by countrie Netherlands
+stats[stats$Country.Name== "Netherlands",]
+
+#Filter by countrie Norway
+stats[stats$Country.Name== "Norway",]
+```
+
