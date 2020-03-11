@@ -54,3 +54,80 @@ colnames (FreeThrowAttempts) <- Seasons
 rownames (FreeThrowAttempts) <- Players
 # Verifique la matriz
 FreeThrowAttempts
+
+#Debe crear tres trazados que muestren las siguientes ideas:
+# Visualiza las nuevas matrices
+FreeThrows
+rownames(FreeThrows)
+colnames(FreeThrows)
+
+FreeThrowAttempts
+rownames(FreeThrowAttempts)
+colnames(FreeThrowAttempts)
+
+
+#* Intentos de lanzamiento gratis por juego
+# Parte 1 - Intentos de lanzamiento gratis por juego
+# (Necesitará la matriz de Juegos)
+#Games 
+KobeBryant_G <- c(80,77,82,82,73,82,58,78,6,35)
+JoeJohnson_G <- c(82,57,82,79,76,72,60,72,79,80)
+LeBronJames_G <- c(79,78,75,81,76,79,62,76,77,69)
+CarmeloAnthony_G <- c(80,65,77,66,69,77,55,67,77,40)
+DwightHoward_G <- c(82,82,82,79,82,78,54,76,71,41)
+ChrisBosh_G <- c(70,69,67,77,70,77,57,74,79,44)
+ChrisPaul_G <- c(78,64,80,78,45,80,60,70,62,82)
+KevinDurant_G <- c(35,35,80,74,82,78,66,81,81,27)
+DerrickRose_G <- c(40,40,40,81,78,81,39,0,10,51)
+DwayneWade_G <- c(75,51,51,79,77,76,49,69,54,62)
+#Matrix
+Games <- rbind(KobeBryant_G, JoeJohnson_G, LeBronJames_G, CarmeloAnthony_G, DwightHoward_G, ChrisBosh_G, ChrisPaul_G, KevinDurant_G, DerrickRose_G, DwayneWade_G)
+rm(KobeBryant_G, JoeJohnson_G, CarmeloAnthony_G, DwightHoward_G, ChrisBosh_G, LeBronJames_G, ChrisPaul_G, DerrickRose_G, DwayneWade_G, KevinDurant_G)
+colnames(Games) <- Seasons
+rownames(Games) <- Players
+myplot(FreeThrowAttempts / Games)
+# Observe cómo Chris Paul consigue pocos intentos por juego
+
+# Volver a crear la función de trazado
+myplot <- function(z, who=1:10) {
+  matplot(t(z[who,,drop=F]), type="b", pch=15:18, col=c(1:4,6), main="Basketball Players Analysis")
+  legend("bottomleft", inset=0.01, legend=Players[who], col=c(1:4,6), pch=15:18, horiz=F)
+}
+#* Precisión de tiros libres
+# Parte 2 - Precisión de tiro libre
+myplot ( FieldGoalAttempts / Games )
+# Y sin embargo, la precisión de Chris Paul es una de las más altas
+# Lo más probable es que su equipo obtenga más puntos si tuviera más TLC
+# Observe también que la precisión FT de Dwight Howard es extremadamente pobre
+# comparado con otros jugadores. Si recuerdas, Dwight Howard's
+# La precisión del objetivo de campo fue excepcional:
+#myplot ( FieldGoals / FieldGoalAttempts )
+# ¿Cómo puede ser esto? ¿Por qué hay una diferencia tan drástica?
+# Veremos ahora ...
+
+#* Estilo de juego del jugador (preferencia de 2 vs 3 puntos) excluyendo tiros libres
+# Parte 3 - Patrones de estilo de jugador excluyendo tiros libres
+myplot (( FieldGoalAttempts  - FreeThrows  ) / Games )
+# Debido a que hemos excluido los tiros libres, esta trama ahora nos muestra
+# la verdadera representación del cambio de estilo del jugador. Podemos verificar
+# que este es el caso porque todas las marcas sin excepción
+# en esta parcela son entre 2 y 3. Eso se debe a los objetivos de campo
+# solo puede ser por 2 puntos o por 3 puntos.
+# Insights:
+# 1. Puedes ver cómo prefieren los jugadores los tiros de 2 o 3 puntos
+#    cambios a lo largo de su carrera. Podemos ver que casi todos
+#    jugadores en este conjunto de datos experimentan con su estilo a lo largo
+#    sus carreras. Quizás, el cambio más drástico en el estilo tiene
+#    experimentado por Joe Johnson.
+# 2. Hay una excepción. Puedes ver que un jugador no tiene
+#    cambió su estilo en absoluto, casi siempre anotando solo 2 puntos.
+#    ¿Quién es este jugador mystert? ¡Es Dwight Howard!
+#    Ahora eso explica mucho. La razón por la que Dwight Howard's
+#    La precisión del objetivo de campo es tan buena porque casi siempre
+#    puntúa solo 2 puntos. Eso significa que puede estar cerca de la canasta
+#    o incluso en contacto con él. Los tiros libres, por otro lado requieren
+#    el jugador para estar a 15 pies (4.57m) de distancia del aro. Eso es
+#    probablemente por qué la precisión de tiro libre de Dwight Howard es pobre.
+#Cada tiro libre vale 1 punto
+#Los datos han sido suministrados en forma de vectores. Tendrás que crear
+#dos matrices antes de proceder con el análisis.
