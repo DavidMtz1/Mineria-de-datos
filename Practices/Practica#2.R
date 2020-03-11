@@ -120,3 +120,46 @@ if (any (x <0)) cat ("In x there are negative numbers \ n") # If any numbers of 
 coef() #Coef is a generic function which extracts model coefficients from objects returned by modeling functions.
 
 x <- 1:5; coef(lm(c(1:3, 7, 6) ~ x))
+
+#11
+hist(rnorm(200)) # Generate a histogram of the 200 random numbers with normal distribution
+
+#12
+?min() #Returns the minima of the input values.
+m <- runif (100,1,10)
+min(m)
+
+#13
+?max() #Returns the maxima of the input values.
+max(m)
+
+#14
+?filter() #Applies linear filtering to a univariate time series or to each series separately of a multivariate time series.
+x <- 1:100
+filter(x, rep(1, 5))
+
+#15
+?cor() #var, cov and cor compute the variance of x and the covariance or correlation of x and y if these are vectors. If x and y are matrices then the covariances (or correlations) between the columns of x and the columns of y are computed.
+cor(1:10, 2:11) 
+
+#16
+?lag.plot() #Plot time series against lagged versions of themselves. Helps visualizing 'auto-dependence' even when auto-correlations vanish.
+lag.plot(freeny.x, lags = 3)
+
+#18
+?rcauchy() #Density, distribution function, quantile function and random generation for the Cauchy distribution with location parameter location and scale parameter scale
+rcauchy(n, location = 0, scale = 1)
+
+#19
+?ave() #Subsets of x[] are averaged, where each subset consist of those observations with the same factor levels.
+ave(1:4) 
+
+#20
+?cor() var, cov and cor compute the variance of x and the covariance or correlation of x and y if these are vectors.
+
+cor(1:10, 2:11)
+
+#21
+f <- function (x, a) (x - b)^2
+xmin <- optimize(f, c(0, 1), tol = 0.0001, a = 1/3)
+xmin
