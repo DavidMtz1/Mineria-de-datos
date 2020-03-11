@@ -1,6 +1,15 @@
-# Mineria-de-datos
+
+DataMining`> Unit1-Programming-with-R`
+
+## Unit 1: Programming-with-R
+
+Welcome to the Programming course with R!
+In this first module we are going to learn how R works and write our first lines of code.
 
 
+### OBJECTIVE
+
+- Learn the fundamentals of R, object-oriented programming, loop operation, data exploration and time series to efficiently structure codes and databases, do predictive analysis and automate processes.
 
 ## Index
 - [First Practice (Nomral Distribition)](#first-practice)
@@ -10,6 +19,10 @@
 - [Fifth Practice (Filters)](#fifth-practice)
 
 
+### ADDITIONAL RESOURCES
+
+Use the following resources that will serve as support throughout the module:
+- #### - [jcromerohdz/DataMining](https://github.com/jcromerohdz/DataMining)
 
 ### First Practice
 ```
