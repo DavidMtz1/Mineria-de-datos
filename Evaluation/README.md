@@ -51,6 +51,8 @@ ggplot() + geom_point(aes(x = 1:10, y = wcss), color = 'blue') +
   xlab('Cantidad de Centroides k') + 
   ylab('WCSS')
 ```
+![Alt text](Metodo del codo.PNG "PracticaLogisticRegression")
+
 
 > Set K-Means to the dataset
 ```
@@ -86,6 +88,8 @@ y_kmeans
 ```
 table(dataset.class,kmeans$cluster,dnn=c("Species","Cluster number"))
 ```
+![Alt text](Clusters.PNG "PracticaLogisticRegression")
+
 
 > Viewing the clusters
 ```
@@ -101,6 +105,7 @@ clusplot(dataset,
          main = paste('Clusters of iris'),
 )
 ```
+![Alt text](Confusion Matrix.PNG "PracticaLogisticRegression")
 
 > Customize upper panel
 ```
@@ -116,3 +121,4 @@ upper.panel<-function(x, y){
 ```
 pairs(dataset, main="Data (Iris -- 3 Especies",pch = 21, bg = c("red", "green3","blue")[dataset.class])
 ```
+![Alt text](Dispersion Matrix.PNG "PracticaLogisticRegression")
